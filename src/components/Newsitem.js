@@ -6,7 +6,7 @@ export class Newsitem extends Component {
     return (
       <div className='my-3 mx-3'>
         <div className="card">
-          <span className="position-absolute top-0  translate-middle badge rounded-pill bg-secondary" style={{left:"95%",zIndex:'1'}}>
+          <span className="position-absolute top-0  translate-middle badge rounded-pill bg-secondary" style={{ left: "95%", zIndex: '1' }}>
             {source}
           </span>
           <img src={imgUrl ? imgUrl : "https://swarajya.gumlet.io/swarajya/2021-12/2deef8fa-67e7-4469-8a50-f0dfac9ebaca/ahddagfiugr.jpg?w=1200&auto=format%2Ccompress&ogImage=true"} className="card-img-top" alt="..." />
