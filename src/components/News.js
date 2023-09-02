@@ -14,13 +14,18 @@ export class News extends Component {
         pageSize: PropTypes.number,
         category: PropTypes.string
     }
-    constructor() {
-        super();
+    capitlizeText(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
+    constructor(props) {
+        super(props);
         this.state = {
             articles: [],
             loading: false,
             page: 1
         }
+        document.title = `${this.capitlizeText(this.props.category)} - NewsNest`
     }
     async newsUpdate() {
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=618a1f0348634d02bc350074e657b3fa&page=${this.state.page}&pageSize=${this.props.pageSize}`;
@@ -45,7 +50,7 @@ export class News extends Component {
     render() {
         return (
             <div className='container my-3'>
-                <h2 className='text-center'>Top Headlines</h2>
+                <h2 className='text-center'>Top {this.capitlizeText(this.props.category)} Headlines</h2>
                 {this.state.loading && <Spinner />}
                 <div className="row">
                     {!this.state.loading && this.state.articles.map((ele) => {
